@@ -6,30 +6,36 @@ import org.hibernate.annotations.Comment
 
 @Table(name = "stock")
 @Entity
-class Stock(
+class StockEntity(
 
     @Comment("할당수량")
     @Column(name = "allocQty")
-    val allocQty: Int,
+    var allocQty: Int = 0,
 
     @Comment("가용수량")
     @Column(name = "qty")
-    val qty: Int,
+    var qty: Int,
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "lot_id")
-    val lot: Lot,
+    val lot: LotEntity,
+
+    @Version
+    var version: Int = 0,
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "location_id")
-    val location: Location,
+    var location: LocationEntity,
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "sku_id")
-    val sku: Sku,
+    val sku: SkuEntity
+
+) : BaseEntity() {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "stock_id")
-    val id: Long? = null,
-) : BaseEntity()
+    val id: Long? = null
+
+}

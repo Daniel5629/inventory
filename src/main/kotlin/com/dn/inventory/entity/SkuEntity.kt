@@ -7,13 +7,13 @@ import org.hibernate.annotations.Comment
 
 @Table(name = "sku")
 @Entity
-class Sku(
+class SkuEntity(
 
     @Comment("상품명")
     @Column(name = "sku_name")
     val name: String,
 
-    @Comment("보관유형: 상온(H), 냉장(M), 냉동(L) ")
+    @Comment("보관유형: 상온(H), 냉장(M), 냉동(L), 합포(CB) ")
     @Column(name = "storage_type")
     val storageType: StorageType,
 
@@ -27,10 +27,12 @@ class Sku(
 
     @Comment("상품 소분류")
     @Column(name = "sub_category")
-    val subCategory: String,
+    val subCategory: String
+
+) : BaseEntity() {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "sku_id")
-    val id: Long? = null,
-) : BaseEntity()
+    val id: Long? = null
+}
