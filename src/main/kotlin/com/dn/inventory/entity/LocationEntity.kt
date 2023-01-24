@@ -2,7 +2,7 @@ package com.dn.inventory.entity
 
 import com.dn.inventory.common.enumuration.LocationType
 import com.dn.inventory.entity.base.BaseEntity
-import jakarta.persistence.*
+import javax.persistence.*
 import org.hibernate.annotations.Comment
 
 @Table(name = "location")

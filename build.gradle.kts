@@ -1,11 +1,13 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    id("org.springframework.boot") version "3.0.1"
+
+    id("org.springframework.boot") version "2.7.8"
     id("io.spring.dependency-management") version "1.1.0"
     kotlin("jvm") version "1.7.22"
     kotlin("plugin.spring") version "1.7.22"
     kotlin("plugin.jpa") version "1.7.22"
+    kotlin("kapt") version "1.7.22"
 }
 
 group = "com.dn"
@@ -17,11 +19,32 @@ repositories {
 }
 
 dependencies {
+    val querydslVersion = "5.0.0"
+
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+
+//    //springboot3.0 부터는 기본적으로 javax 가 아닌 jakarta를 이용한다.
+//    //querydsl jakarta
+//    implementation("com.querydsl:querydsl-jpa:${querydslVersion}:jakarta")
+//    kapt("com.querydsl:querydsl-apt:${querydslVersion}:jakarta")
+//    kapt("org.springframework.boot:spring-boot-configuration-processor")
+//
+//    //hibernate-validator jakarta 지원 버전 추가
+//    implementation("org.hibernate.validator:hibernate-validator:8.0.0.Final")
+
+    implementation("com.querydsl:querydsl-jpa:${querydslVersion}")
+    kapt("com.querydsl:querydsl-apt:${querydslVersion}")
+    kapt("org.springframework.boot:spring-boot-configuration-processor")
+
+    //openapi
+    implementation("org.springdoc:springdoc-openapi-data-rest:1.6.7")
+    implementation("org.springdoc:springdoc-openapi-ui:1.6.7")
+    implementation("org.springdoc:springdoc-openapi-kotlin:1.6.7")
+
     runtimeOnly("com.h2database:h2")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
 }

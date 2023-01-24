@@ -2,7 +2,7 @@ package com.dn.inventory.repository
 
 import com.dn.inventory.entity.LocationEntity
 import com.dn.inventory.entity.StockEntity
-import jakarta.persistence.LockModeType
+import javax.persistence.LockModeType
 import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.data.jpa.repository.Lock
 

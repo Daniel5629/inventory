@@ -1,7 +1,7 @@
 package com.dn.inventory.entity
 
 import com.dn.inventory.entity.base.BaseEntity
-import jakarta.persistence.*
+import javax.persistence.*
 import org.hibernate.annotations.Comment
 
 @Table(name = "center")
@@ -17,11 +17,11 @@ class CenterEntity(
     val code: String,
 
     @Comment("센터전화번호")
-    @Column(name = "center_code")
+    @Column(name = "phone")
     val phone: String,
 
     @Comment("센터주소")
-    @Column(name = "center_code")
+    @Column(name = "address")
     val address: String
 
 ) : BaseEntity() {
