@@ -13,9 +13,7 @@ spec:
         run: inventory
     spec:
       containers:
-        - image: ghcr.io/daniel5629/inventory:latest
-          name: inventory
+        - name: inventory
+          image: ghcr.io/daniel5629/inventory:latest
           ports:
             - containerPort: 8080
-      imagePullSecrets:
-        - name: ghcr-cred
