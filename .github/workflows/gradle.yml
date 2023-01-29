@@ -39,7 +39,7 @@ jobs:
       uses: docker/login-action@v1
       with:
         registry: ghcr.io
-        username: ${{ github.repository_owner }}
+        username: ${{ secrets.REPO_OWNER }}
         password: ${{ secrets.CR_PAT }} #Container Registry Personal Acccess Token
     - name: Build and push
       uses: docker/build-push-action@v2
@@ -47,4 +47,4 @@ jobs:
         context: .
         file: ./Dockerfile
         push: true
-        tags: ghcr.io/${{ github.repository_owner }}/inventory:latest
+        tags: ghcr.io/${{ secrets.REPO_OWNER }}/inventory:latest
