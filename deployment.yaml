@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: inventory
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      run: inventory
+  template:
+    metadata:
+      labels:
+        run: inventory
+    spec:
+      containers:
+        - image: ghcr.io/daniel5629/inventory:latest
+          name: inventory
+          ports:
+            - containerPort: 80
+      imagePullSecrets:
+        - name: ghcr-cred

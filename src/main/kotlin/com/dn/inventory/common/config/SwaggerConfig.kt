@@ -15,8 +15,8 @@ class SwaggerConfig {
     fun springShopOpenAPI(): OpenAPI? {
         return OpenAPI()
             .info(
-                Info().title("kotlin mvc")
-                    .description("kotlin mvc application")
+                Info().title("Inventory")
+                    .description("Inventory application")
                     .version("v0.0.1")
                     .license(License().name("Apache 2.0").url("http://springdoc.org"))
             )
