@@ -13,12 +13,12 @@ import javax.persistence.MappedSuperclass
 open class BaseEntity {
 
     @CreatedDate
-    @Column(name = "created_date", updatable = false, nullable = false)
-    val createdDate: LocalDateTime? = null
+    var createDate: LocalDateTime = LocalDateTime.MIN
+        private set
 
     @LastModifiedDate
-    @Column(name = "updated_date")
-    val updatedDAte: LocalDateTime? = null
+    var updateDate: LocalDateTime = LocalDateTime.MIN
+        private set
 
     @Column(name = "is_delete")
     val isDelete: Boolean = false
