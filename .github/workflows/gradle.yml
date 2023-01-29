@@ -46,6 +46,6 @@ jobs:
       with:
         context: .
         file: ./Dockerfile
-        platforms: linux/amd64
+        platforms: linux/arm64, linux/amd64
         push: true
         tags: ghcr.io/${{ secrets.REPO_OWNER }}/inventory:latest
