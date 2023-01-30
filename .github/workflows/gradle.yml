@@ -8,8 +8,6 @@
 name: Java CI with Gradle
 
 on:
-  push:
-    branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
 
@@ -46,5 +44,6 @@ jobs:
       with:
         context: .
         file: ./Dockerfile
+        platforms: linux/arm64, linux/amd64
         push: true
         tags: ghcr.io/${{ secrets.REPO_OWNER }}/inventory:latest
