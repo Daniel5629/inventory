@@ -4,9 +4,13 @@ metadata:
   name: inventory
 spec:
   ports:
-    - port: 8080
-      nodeport: 30000
+    - port: 9000 #service port
       protocol: TCP
-      targetPort: 8080
+      targetPort: 8080 #deployment containerPort
   selector:
     run: inventory
+  type: LoadBalancer
+  status:
+    loadBalancer:
+      ingress:
+        - ip: 127.0.0.1
