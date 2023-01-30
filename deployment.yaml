@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
         - name: inventory
-          image: ghcr.io/daniel5629/inventory:latest
+          image: ghcr.io/daniel5629/inventory:releases-v.0.0.2
           ports:
             - containerPort: 8080
