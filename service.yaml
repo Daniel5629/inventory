@@ -10,7 +10,3 @@ spec:
   selector:
     run: inventory
   type: LoadBalancer
-  status:
-    loadBalancer:
-      ingress:
-        - ip: 127.0.0.1
